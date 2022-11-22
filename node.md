@@ -63,6 +63,8 @@ file descriptors --- 读取文件时的底层操作
 
 ### 文件的读写
 
+> 注意： 写入的编码格式和读取的编码格式必须保持一致
+
 ```js
 fs.readFile(path[,options], callback); // 读取文件的内容
 fs.writeFile(file,data[,options], callback); // 在文件中写入内容
@@ -80,6 +82,4 @@ r -> 读，读取时的默认值
 r+ -> 读写，不存在则抛出异常
 a -> append,追加写入内容，不存在则创建
 a+ -> append,追加写入内容，可读可写，不存在则创建
-
-
 ```
