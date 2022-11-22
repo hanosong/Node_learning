@@ -83,3 +83,21 @@ r+ -> 读写，不存在则抛出异常
 a -> append,追加写入内容，不存在则创建
 a+ -> append,追加写入内容，可读可写，不存在则创建
 ```
+
+```js
+// 如果文件夹里套了多层文件夹 --> 递归操作
+function readDirectory(path) {
+  fs.readdir(path, { withFileTypes: true }, (err, files) => {
+    files.forEach((item) => {
+      // 如果拿到的又是一个文件夹
+      if (item.isDirectory()) {
+        readDirectory(`${path}/${item.name}`);
+      } else {
+        console.log("获取到文件的名字是:", item.name);
+      }
+    });
+  });
+}
+```
+
+### 文件夹/文件的重命名
