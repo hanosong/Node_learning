@@ -116,3 +116,17 @@ fs.rename("./rename", "./newname", (err) => {
   - 我们可以监听这个事件（监听器 Listeners），并且传入的回调函数，这个回调函数会在监听到事件时被调用
 
 > 等同于 eventBus
+
+### events 常见的方法
+
+- EventEmitter 的实例有一些属性，可以记录一些信息
+
+1. emitter.eventNames() --- 返回当前 EventEmitter 对象注册的事件字符串数组
+2. emitter.getMaxListeners() --- 返回当前 EventEmitter 对象的最大监听器数量，可以通过 setMaxListeners()来修改，默认是 10
+3. emitter.listenerCount(事件名称) --- 返回当前 EventEmitter 对象某一个事件名称，监听器的个数
+4. emitter.listeners(事件名称) --- 返回当前 EventEmitter 对象某个事件监听器上所有的监听器数组
+
+5. emitter.once(eventName,listener) --- 事件监听一次
+6. emitter.prependListener() --- 将监听事件添加到最前面
+7. emitter.prependOnceListener() --- 将监听事件添加到最前面，但是只监听一次
+8. emitter.removeAllListeners([eventName]) --- 无参数：移除所有事件监听，有参数：只移除传递的事件名称的事件监听
