@@ -101,3 +101,18 @@ function readDirectory(path) {
 ```
 
 ### 文件夹/文件的重命名
+
+```js
+// 参数1: oldpath; 参数2：newpath
+fs.rename("./rename", "./newname", (err) => {
+  console.log(err, "重命名失败"); // null ---> 重命名成功
+});
+```
+
+## events 模块
+
+- Node 中的核心 api 都是基于异步的事件驱动 ---> 比如客户端上传图片，是以流的形式一步一步传过来的 => 是一点一点读到的，每读到一点，触发一次回调
+  - 在这个体系中，某些对象（发射器--Emitters）发出某一个事件
+  - 我们可以监听这个事件（监听器 Listeners），并且传入的回调函数，这个回调函数会在监听到事件时被调用
+
+> 等同于 eventBus
